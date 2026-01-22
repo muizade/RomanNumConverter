@@ -1,0 +1,255 @@
+Roman Numeral Converter
+
+Software Development Life Cycle (SDLC) Documentation
+
+
+---
+
+Project Overview
+
+This project is a command-line Roman Numeral Converter developed using Python.
+It supports two modes of conversion:
+
+1. Integer to Roman numeral
+
+
+2. Roman numeral to Integer
+
+
+
+The application validates all user inputs, strictly follows standard Roman numeral rules, and does not make use of any external libraries.
+
+
+---
+
+1. Planning Phase
+
+Project Requirements
+
+A command-line application with a simple and user-friendly interface.
+
+Two conversion modes:
+
+Integer → Roman numeral
+
+Roman numeral → Integer
+
+
+Input validation rules:
+
+Integers must be within the range of 1 to 3999.
+
+Roman numerals must conform to valid Roman numeral conventions.
+
+
+No external libraries are permitted.
+
+Conversions must be accurate and reliable.
+
+
+Project Goal
+
+The objective of this project is to create a lightweight and dependable Roman numeral converter that is easy to use, resistant to invalid inputs, and fully compliant with Roman numeral standards.
+
+
+---
+
+2. Analysis Phase
+
+Roman Numeral Rules
+
+Roman numerals are represented using the following symbols:
+
+Symbol	Value
+
+I	1
+V	5
+X	10
+L	50
+C	100
+D	500
+M	1000
+
+
+Subtractive notation is supported as shown below:
+
+IV = 4
+
+IX = 9
+
+XL = 40
+
+XC = 90
+
+CD = 400
+
+CM = 900
+
+
+Conversion Logic
+
+Integer to Roman Conversion:
+
+A list of value–symbol pairs is arranged in descending order.
+
+Values are repeatedly subtracted while their corresponding symbols are appended to the result.
+
+
+Roman to Integer Conversion:
+
+Roman symbols are mapped to their integer values.
+
+The string is processed from left to right.
+
+If a symbol has a lower value than the symbol that follows it, the value is subtracted; otherwise, it is added.
+
+
+User Interaction Flow
+
+1. The user selects the desired conversion mode.
+
+
+2. The user inputs a value.
+
+
+3. The system validates the input.
+
+
+4. The conversion result is displayed.
+
+
+
+
+---
+
+3. Design Phase
+
+Program Structure
+
+Main Function
+
+main()
+
+Displays the menu options.
+
+Accepts user input.
+
+Calls the appropriate conversion function.
+
+Controls the program loop and handles errors.
+
+
+Functions
+
+int_to_roman(num)
+
+Input: Integer
+
+Output: Roman numeral string
+
+Mapping used:
+
+
+roman_map = [
+    (1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
+    (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
+    (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')
+]
+
+roman_to_int(s)
+
+Input: Roman numeral string
+
+Output: Integer
+
+Mapping used:
+
+
+roman_values = {
+    'I': 1, 'V': 5, 'X': 10,
+    'L': 50, 'C': 100,
+    'D': 500, 'M': 1000
+}
+
+Iterates through the string and applies subtractive notation where necessary.
+
+
+is_valid_roman(s)
+
+Confirms that only valid Roman numeral characters are used.
+
+Ensures correct ordering and structure of Roman numerals.
+
+
+Interface Design
+
+Menu-driven command-line interface.
+
+Clear prompts and error messages.
+
+Continuous execution until the user chooses to exit.
+
+
+
+---
+
+4. Implementation Phase
+
+The project is implemented in Python using the following functions:
+
+main()
+
+int_to_roman(num)
+
+roman_to_int(s)
+
+is_valid_roman(s)
+
+
+All function names and variable names strictly match those defined during the design phase.
+
+
+---
+
+5. Testing Phase
+
+Manual Test Cases
+
+Test Case	Expected Output
+
+int_to_roman(1990)	MCMXC
+roman_to_int("MCMXC")	1990
+int_to_roman(1)	I
+int_to_roman(3999)	MMMCMXCIX
+Invalid Roman numeral "IIX"	Error / Validation Failure
+
+
+The application was tested repeatedly using various valid and invalid inputs to ensure correctness and stability.
+
+
+---
+
+6. Maintenance Phase
+
+Future Improvements
+
+Extend support to larger numerical values.
+
+Add a Graphical User Interface (GUI).
+
+Improve Roman numeral validation logic.
+
+Optimize overall performance.
+
+
+Maintenance Activities
+
+Fixing bugs and handling edge cases.
+
+Enhancing input validation.
+
+Implementing new features based on user feedback.
+
+
+
+---
